@@ -1,0 +1,3554 @@
+/* ---------- Reset & base ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #1f2933;
+    background-color: #f7f8fa;
+}
+
+a {
+    color: #d9480f;
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.hidden-field {
+    display: none;
+}
+
+.banner-inline-toggle,
+.admin-action-link-plain,
+.inline-status-form,
+.admin-page-subtitle-spaced {
+    display: inline-block;
+}
+
+.banner-inline-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+}
+
+.admin-action-link-plain {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.inline-status-form {
+    display: inline;
+}
+
+.admin-page-subtitle-spaced {
+    margin-bottom: 20px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e4e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #d9480f;
+    white-space: nowrap;
+}
+
+.brand-logo {
+    display: block;
+    height: 52px;
+    width: auto;
+}
+
+.mobile-brand-logo {
+    height: 36px;
+}
+
+.search-bar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(640px, calc(100% - 520px));
+    max-width: 640px;
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #d9480f;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-bar-btn {
+    background-color: #d9480f;
+    color: #ffffff;
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.search-bar-btn:hover {
+    background-color: #b8380c;
+}
+
+.search-bar-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.account-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    font-size: 14px;
+    margin-left: auto;
+}
+
+.account-nav details {
+    position: relative;
+}
+
+.account-nav summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.account-nav summary::-webkit-details-marker {
+    display: none;
+}
+
+.account-nav details[open] summary {
+    font-weight: 600;
+}
+
+.account-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 8px;
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 4px;
+    padding: 8px;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.account-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e0753f;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(224, 117, 63, 0.25);
+    border: none;
+    font-weight: 600;
+}
+
+.account-icon-btn:hover {
+    background: #d15c31;
+    box-shadow: 0 4px 10px rgba(209, 92, 49, 0.3);
+    transform: scale(1.08);
+}
+
+.account-icon-btn:active {
+    transform: scale(0.96);
+}
+
+.account-icon-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.account-details summary {
+    display: flex;
+}
+
+.account-menu-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2933;
+    padding: 4px 6px 2px;
+    margin-bottom: 0;
+    display: block;
+}
+
+.preview-badge {
+    background-color: #fff3cd;
+    color: #92400e;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ---------- Layout wrapper ---------- */
+.layout-wrapper {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 24px;
+}
+
+/* ---------- Sidebar (filters) ---------- */
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.sidebar label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+.sidebar select,
+.sidebar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sidebar button {
+    margin-top: 16px;
+    width: 100%;
+    padding: 10px;
+    background-color: #d9480f;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sidebar-clear {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ---------- Results area ---------- */
+.results-area {
+    flex: 1;
+    min-width: 0;
+}
+
+.results-count {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.vehicle-card {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-card a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.vehicle-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #f3f4f6;
+    display: block;
+}
+
+.vehicle-card-body {
+    padding: 12px;
+}
+
+.vehicle-card h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.vehicle-card .vehicle-meta {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.vehicle-card .vehicle-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #d9480f;
+}
+
+.pagination-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.load-more-wrapper {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.load-more-wrapper button {
+    padding: 12px 32px;
+    background-color: #ffffff;
+    color: #d9480f;
+    border: 2px solid #d9480f;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.load-more-wrapper button:hover {
+    background-color: #d9480f;
+    color: #ffffff;
+}
+
+.load-more-wrapper button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* ---------- Overlay for mobile sidebar ---------- */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 90;
+}
+
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 24px 0;
+    font-size: 13px;
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 6px;
+    align-items: center;
+}
+
+.breadcrumbs a {
+    color: #6b7280;
+}
+
+.breadcrumbs a:hover {
+    color: #d9480f;
+}
+
+.breadcrumbs span[aria-current="page"] {
+    color: #1f2933;
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: #4b5563;
+    font-weight: 700;
+}
+
+/* ---------- Modals (auth prompt, no-changes guard, image preview) ---------- */
+dialog#auth-modal {
+    max-width: 380px;
+    width: 90%;
+    margin: auto;
+    padding: 32px 28px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    position: relative;
+}
+
+dialog#auth-modal::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    font-size: 22px;
+    line-height: 1;
+    color: #9ca3af;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    background: transparent;
+    color: #4b5563;
+}
+
+.modal-close-btn:focus-visible {
+    outline: none;
+}
+
+.modal-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+dialog#auth-modal h2,
+dialog#no-changes-modal h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+dialog#auth-modal p,
+dialog#no-changes-modal p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.modal-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    outline: none;
+}
+
+.modal-btn:focus-visible {
+    outline: 2px solid #d9480f;
+    outline-offset: 2px;
+}
+
+.modal-btn-primary {
+    background-color: #d9480f;
+    color: #ffffff;
+}
+
+.modal-btn-secondary {
+    background-color: #ffffff;
+    color: #d9480f;
+    border: 1px solid #d9480f;
+}
+
+.modal-btn:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+dialog#no-changes-modal,
+dialog#delete-vehicle-modal,
+dialog#save-vehicle-modal {
+    max-width: 360px;
+    width: 90%;
+    margin: auto;
+    padding: 28px 26px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    position: relative;
+}
+
+dialog#no-changes-modal::backdrop,
+dialog#delete-vehicle-modal::backdrop,
+dialog#save-vehicle-modal::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+dialog#delete-vehicle-modal h2,
+dialog#save-vehicle-modal h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+dialog#delete-vehicle-modal p,
+dialog#save-vehicle-modal p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+dialog#delete-vehicle-modal #delete-vehicle-form {
+    display: block;
+}
+
+dialog#image-preview-modal {
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    overflow: visible;
+}
+
+dialog#image-preview-modal::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+dialog#image-preview-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: block;
+    border-radius: 8px;
+}
+
+dialog#image-preview-modal .modal-close-btn {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    color: #ffffff;
+    font-size: 28px;
+    z-index: 10;
+}
+
+/* ---------- Auth pages ---------- */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+}
+
+.auth-branding {
+    position: relative;
+    flex: 1;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    background-image: linear-gradient(160deg, rgba(217, 73, 15, 0.82), rgba(126, 41, 12, 0.78)),
+        url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.auth-branding::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 17, 24, 0.15), rgba(12, 17, 24, 0.35));
+}
+
+.auth-branding-panel {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+}
+
+.auth-branding-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 18px;
+    backdrop-filter: blur(6px);
+}
+
+.auth-branding h1 {
+    font-size: 46px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    letter-spacing: -0.04em;
+}
+
+.auth-branding p {
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.96;
+    max-width: 430px;
+    margin-bottom: 24px;
+}
+
+.auth-branding-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 12px;
+    max-width: 420px;
+}
+
+.auth-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.auth-feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.auth-form-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background: #f7f8fa;
+}
+
+.auth-form-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 34px 36px;
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(31, 41, 51, 0.08);
+}
+
+.auth-form-box h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.auth-form-box .auth-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.auth-form-box label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 14px;
+    margin-bottom: 4px;
+}
+
+.auth-form-box input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.auth-form-box input:focus {
+    outline: none;
+    border-color: #d9480f;
+}
+
+.auth-form-box input.has-error {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.field-inline-error {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.field-inline-error svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.password-field-wrapper {
+    position: relative;
+}
+
+.password-field-wrapper input {
+    padding-right: 40px;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.password-toggle-btn:hover {
+    color: #4b5563;
+}
+
+.password-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.auth-name-row {
+    display: flex;
+    gap: 12px;
+}
+
+.auth-name-row > div {
+    flex: 1;
+}
+
+.auth-submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 22px;
+    background-color: #d9480f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.auth-submit-btn:hover {
+    background-color: #b8380c;
+}
+
+.auth-switch-link {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.auth-errors,
+.auth-success {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+.auth-success {
+    background: #f0fdf4;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+
+/* ---------- Banner carousel (public browse page) ---------- */
+.banner-carousel {
+    max-width: 1400px;
+    margin: 16px auto 0;
+    padding: 0 24px;
+}
+
+.banner-carousel-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.banner-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.banner-slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    display: block;
+}
+
+.banner-slide img {
+    width: 100%;
+    height: 195px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: #f3f4f6;
+}
+
+.banner-caption {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.banner-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.banner-prev { left: 12px; }
+.banner-next { right: 12px; }
+
+.banner-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.banner-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d0d5dd;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.banner-dot.active {
+    background: #d9480f;
+}
+
+@media (max-width: 768px) {
+    .banner-slide img {
+        height: 130px;
+    }
+
+    .banner-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+}
+
+/* ---------- Admin dashboard summary cards ---------- */
+.dashboard-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.dashboard-card {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dashboard-card-alert {
+    border-color: #f59e0b;
+    background-color: #fffbeb;
+}
+
+.dashboard-card-label {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.dashboard-card-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2933;
+}
+
+/* ---------- Dashboard analytics grid (compact side-by-side) ---------- */
+.dashboard-analytics-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: stretch;
+}
+
+.dashboard-analytics-grid .stats-section {
+    margin-bottom: 0;
+}
+
+.analytics-side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100%;
+}
+
+.analytics-side-col .stats-section:last-child {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: column;
+}
+
+.dashboard-analytics-grid .stats-section h2 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.dashboard-analytics-grid .admin-page-subtitle {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.revenue-chart-wrapper {
+    height: 220px;
+    margin-top: 12px;
+}
+
+.revenue-chart-wrapper canvas {
+    display: block;
+    max-width: 100%;
+}
+
+.top-vehicle-row,
+.upcoming-row {
+    padding: 8px;
+    gap: 10px;
+}
+
+.top-vehicle-thumb {
+    width: 36px;
+    height: 36px;
+}
+
+.top-vehicle-name {
+    font-size: 13px;
+}
+
+.top-vehicle-meta,
+.upcoming-detail {
+    font-size: 11px;
+}
+
+.upcoming-title {
+    font-size: 13px;
+}
+
+.upcoming-date-badge {
+    font-size: 11px;
+    padding: 5px 8px;
+}
+
+.top-vehicle-list,
+.upcoming-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.analytics-side-col .upcoming-list {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    padding-right: 4px;
+}
+
+.top-vehicle-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-radius: 8px;
+    background: #f9fafb;
+}
+
+.top-vehicle-rank {
+    font-weight: 700;
+    color: #9ca3af;
+    font-size: 14px;
+    width: 28px;
+}
+
+.top-vehicle-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-vehicle-revenue {
+    font-weight: 700;
+    color: #d9480f;
+    font-size: 14px;
+}
+
+.upcoming-row {
+    display: flex;
+    border-radius: 8px;
+    background: #f9fafb;
+    align-items: flex-start;
+}
+
+.upcoming-date-badge {
+    background: #d9480f;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.upcoming-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.upcoming-title {
+    font-weight: 600;
+}
+
+.upcoming-detail {
+    color: #6b7280;
+}
+
+/* ---------- Vehicle detail page layout ---------- */
+.vehicle-detail-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.detail-errors {
+    grid-column: 1 / -1;
+}
+
+/* ---------- Gallery ---------- */
+.gallery-main {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #f3f4f6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.gallery-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-slide-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.7);
+    transform: scale(1.15);
+}
+
+.gallery-slide-fg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.gallery-prev { left: 12px; }
+.gallery-next { right: 12px; }
+
+.gallery-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-size: 12px;
+    padding: 3px 9px;
+    border-radius: 10px;
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.gallery-thumb {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: none;
+}
+
+.gallery-thumb img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+}
+
+.gallery-thumb.active {
+    border-color: #d9480f;
+}
+
+.gallery-empty {
+    aspect-ratio: 4 / 3;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    border-radius: 8px;
+}
+
+/* ---------- Vehicle info column ---------- */
+.vehicle-info-col h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.vehicle-spec-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 12px;
+}
+
+.vehicle-detail-price {
+    font-size: 26px;
+    font-weight: 700;
+    color: #d9480f;
+    margin-bottom: 16px;
+}
+
+.vehicle-detail-price span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6b7280;
+}
+
+.location-section {
+    margin: 20px 0;
+    padding: 16px 0;
+    border-top: 1px solid #e4e7eb;
+    border-bottom: 1px solid #e4e7eb;
+}
+
+.pickup-location-address {
+    max-width: 100%;
+    margin: 4px 0 12px;
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.not-bookable {
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* ---------- Toast notifications ---------- */
+.toast {
+    position: fixed;
+    top: 76px;
+    right: 24px;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: min(420px, calc(100vw - 32px));
+    padding: 12px 12px 12px 14px;
+    border: 1px solid #f3b892;
+    border-left: 3px solid #e0753f;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #7c2d12;
+    box-shadow: 0 10px 28px rgba(31, 41, 51, 0.14);
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 600;
+    animation: toast-enter 0.25s ease-out forwards;
+}
+
+.toast-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #e0753f;
+    color: #d9480f;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.toast-message {
+    flex: 1;
+}
+
+.toast-close {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #9a6a52;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.toast-close:hover {
+    color: #d9480f;
+}
+
+.toast.toast-hidden {
+    animation: toast-exit 0.25s ease-in forwards;
+}
+
+@keyframes toast-enter {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toast-exit {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); visibility: hidden; }
+}
+
+/* ---------- Book Now trigger + Booking modal ---------- */
+.booking-trigger-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #d9480f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.booking-trigger-btn:hover {
+    background-color: #b8380c;
+}
+
+.icon-svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+dialog#booking-modal {
+    width: 92%;
+    max-width: 520px;
+    max-height: 88vh;
+    overflow-y: auto;
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+dialog#booking-modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.booking-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e4e7eb;
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 2;
+}
+
+.booking-modal-header h2 {
+    font-size: 17px;
+}
+
+.booking-modal-close-btn {
+    background: #f3f4f6;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.booking-modal-close-btn:hover {
+    background: #e5e7eb;
+}
+
+.booking-modal-body {
+    padding: 20px;
+}
+
+/* ---------- Booking Modal inline errors ---------- */
+.field-error {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.booking-modal-body input.has-error,
+.booking-modal-body select.has-error {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5;
+}
+
+.booking-modal-body input.has-error:focus,
+.booking-modal-body select.has-error:focus {
+    border-color: #dc3545 !important;
+    outline: none;
+}
+
+/* ---------- Booking form content (steps, fulfillment, addons) ---------- */
+.booking-box {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.booking-box h2 {
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.booking-step-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #9ca3af;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.booking-step-label:first-child {
+    margin-top: 0;
+}
+
+.date-input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.booking-box label,
+.booking-modal-body label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.booking-box input[type="date"],
+.booking-box input[type="time"],
+.booking-box input[type="text"],
+.booking-box select,
+.booking-modal-body input[type="date"],
+.booking-modal-body input[type="time"],
+.booking-modal-body input[type="text"],
+.booking-modal-body select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.booking-box input:focus,
+.booking-box select:focus,
+.booking-modal-body input:focus,
+.booking-modal-body select:focus {
+    outline: none;
+    border-color: #d9480f;
+}
+
+/* Fulfillment toggle cards */
+.fulfillment-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.fulfillment-card {
+    position: relative;
+    border: 2px solid #e4e7eb;
+    border-radius: 10px;
+    padding: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.fulfillment-card:hover {
+    border-color: #f3b892;
+}
+
+.fulfillment-card input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.fulfillment-card-icon {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.fulfillment-card-icon svg {
+    width: 26px;
+    height: 26px;
+    margin: 0 auto;
+}
+
+.fulfillment-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+}
+
+.fulfillment-card-desc {
+    font-size: 12px;
+    color: #6b7280;
+    display: block;
+    margin-top: 2px;
+}
+
+.fulfillment-card.selected {
+    border-color: #d9480f;
+    background: #fff7ed;
+}
+
+.fulfillment-card.selected .fulfillment-card-title {
+    color: #d9480f;
+}
+
+/* Delivery detail block */
+.delivery-detail-box {
+    background: #f9fafb;
+    border: 1px solid #e4e7eb;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 12px;
+}
+
+.delivery-subheading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.delivery-subheading:not(:first-child) {
+    margin-top: 20px;
+}
+
+.delivery-subheading svg {
+    width: 14px;
+    height: 14px;
+}
+
+.delivery-detail-box .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.delivery-detail-box .field-row:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-detail-box .field-full {
+    margin-bottom: 12px;
+}
+
+.delivery-detail-box .field-full:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-detail-box label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 4px;
+}
+
+.delivery-detail-box select,
+.delivery-detail-box input {
+    background: #ffffff;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+}
+
+.delivery-detail-box input[type="text"],
+.delivery-detail-box input[type="time"] {
+    background-image: none;
+    padding-right: 12px;
+}
+
+.delivery-detail-box input[type="text"],
+.delivery-detail-box input[type="time"],
+.delivery-detail-box select,
+.time-confirm-btn {
+    height: 42px;
+}
+
+.delivery-detail-box select:disabled {
+    color: #9ca3af;
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+}
+
+/* Time confirm button */
+.time-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.time-input-row input[type="time"] {
+    flex: 1;
+}
+
+.time-confirm-btn {
+    padding: 0 14px;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.time-confirm-btn:hover {
+    border-color: #d9480f;
+    color: #d9480f;
+}
+
+.time-confirm-btn.confirmed {
+    background: #f0fdf4;
+    border-color: #22c55e;
+    color: #15803d;
+}
+
+.time-confirm-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.time-confirmed-note {
+    font-size: 12px;
+    color: #15803d;
+    margin-top: 5px;
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+
+.time-confirmed-note.visible {
+    display: flex;
+}
+
+.time-confirmed-note svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* Add-on cards */
+.addon-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.addon-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e4e7eb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.addon-card:hover {
+    border-color: #d9480f;
+}
+
+.addon-card input {
+    width: 16px;
+    height: 16px;
+    accent-color: #d9480f;
+}
+
+.addon-card-price {
+    margin-left: auto;
+    font-weight: 700;
+    color: #d9480f;
+    font-size: 13px;
+}
+
+.booking-estimate {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.booking-estimate strong {
+    color: #d9480f;
+}
+
+.book-now-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #d9480f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+/* ---------- Admin gallery reorder (fleet/edit.php) ---------- */
+.admin-gallery-hint {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.admin-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.admin-gallery-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: grab;
+    border: 2px solid transparent;
+}
+
+.admin-gallery-item.dragging {
+    opacity: 0.4;
+    border-color: #d9480f;
+}
+
+.admin-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f3f4f6;
+    display: block;
+    cursor: zoom-in;
+}
+
+.admin-gallery-badge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background: #d9480f;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.admin-gallery-delete-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* ---------- Admin page shell ---------- */
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.admin-page-title {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.admin-page-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.admin-add-btn {
+    padding: 10px 18px;
+    background-color: #d9480f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.admin-add-btn:hover {
+    background-color: #b8380c;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* ---------- Toolbar (search + filters) ---------- */
+.admin-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.admin-search-box {
+    position: relative;
+    flex: 1;
+    min-width: 220px;
+}
+
+.admin-search-box input {
+    width: 100%;
+    padding: 10px 14px 10px 36px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.admin-search-box .admin-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+    display: flex;
+}
+
+.admin-search-box .admin-search-icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+.admin-filter-select {
+    padding: 10px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #ffffff;
+}
+
+.admin-toolbar button {
+    padding: 10px 18px;
+    background: #1f2933;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-toolbar-clear {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* ---------- Card + table ---------- */
+.admin-card {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table-scroll {
+    overflow-x: auto;
+}
+
+.admin-table-scroll .admin-table {
+    min-width: 700px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.admin-table th {
+    text-align: left;
+    background: #f9fafb;
+    padding: 12px 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+    border-bottom: 1px solid #e4e7eb;
+}
+
+.admin-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f1f3;
+    vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tr:hover {
+    background: #fafafa;
+}
+
+.admin-thumb {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    background: #f3f4f6;
+    border-radius: 6px;
+    display: block;
+}
+
+.admin-empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.admin-action-link {
+    color: #d9480f;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.admin-table-actions {
+    white-space: nowrap;
+}
+
+/* ---------- Status badges ---------- */
+.status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.status-available, .status-confirmed, .status-completed, .status-active {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-maintenance, .status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-retired, .status-cancelled {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ---------- Booking status action buttons ---------- */
+.status-action-btn {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid #d0d5dd;
+    background: #ffffff;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.status-action-btn:hover {
+    border-color: #d9480f;
+    color: #d9480f;
+}
+
+/* ---------- Banner admin grid ---------- */
+.banner-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.banner-admin-card {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.banner-admin-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: left center;
+    display: block;
+    background: #f3f4f6;
+}
+
+.banner-admin-card-body {
+    padding: 14px;
+}
+
+.banner-admin-card-body h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.banner-admin-meta {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.dot-active { background: #22c55e; }
+.dot-inactive { background: #d1d5db; }
+
+.banner-admin-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+/* ---------- Stats sections ---------- */
+.stats-section {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.stats-section h2 {
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.stats-filter-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.stats-filter-form div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stats-filter-form label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.stats-filter-form input {
+    padding: 8px 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.stats-filter-form button {
+    padding: 9px 18px;
+    background: #d9480f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 36px;
+}
+
+.stats-revenue-highlight {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d9480f;
+}
+
+/* ---------- Admin form pages (add/edit vehicle, banner, change password) ---------- */
+.admin-form-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.admin-form-card {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 10px;
+    padding: 28px;
+}
+
+.admin-form-card h1 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.admin-form-card .admin-page-subtitle {
+    margin-bottom: 20px;
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.admin-form-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+.admin-form-card label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    color: #374151;
+}
+
+.admin-form-card input[type="text"],
+.admin-form-card input[type="number"],
+.admin-form-card input[type="email"],
+.admin-form-card input[type="password"],
+.admin-form-card input[type="file"],
+.admin-form-card select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.admin-form-card input:focus,
+.admin-form-card select:focus {
+    outline: none;
+    border-color: #d9480f;
+}
+
+.admin-form-card fieldset {
+    border: 1px solid #e4e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 16px;
+}
+
+.admin-form-card legend {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 6px;
+    color: #374151;
+}
+
+.admin-form-card fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.admin-form-submit {
+    width: 100%;
+    padding: 12px;
+    margin-top: 24px;
+    background-color: #d9480f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.admin-form-submit:hover {
+    background-color: #b8380c;
+}
+
+.admin-form-errors {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    list-style: none;
+}
+
+.admin-form-success {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+.current-photo-preview {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.current-photo-preview img {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 7 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    background: #f3f4f6;
+}
+
+/* ---------- Location map (compact preview, used in add/edit vehicle) ---------- */
+.location-map-box {
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #d0d5dd;
+    margin: 10px 0;
+}
+
+.locate-btn-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.locate-btn-row button {
+    padding: 8px 14px;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.locate-btn-row button:hover {
+    border-color: #d9480f;
+    color: #d9480f;
+}
+
+.locate-status-text {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.location-hint {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* ---------- Vehicle history page ---------- */
+.vehicle-history-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.vehicle-history-thumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #f3f4f6;
+}
+
+/* ---------- My Bookings ---------- */
+.bookings-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.bookings-page-header {
+    margin-bottom: 20px;
+}
+
+.bookings-page-header h1 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.booking-alert-success {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.booking-alert-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    list-style: none;
+}
+
+.bookings-empty {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 12px;
+    padding: 60px 20px;
+    text-align: center;
+    color: #6b7280;
+}
+
+.bookings-empty a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #d9480f;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.bookings-empty a:hover {
+    text-decoration: none;
+    background: #b8380c;
+}
+
+.booking-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.booking-card {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 12px;
+    padding: 18px 20px;
+}
+
+.booking-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.booking-card-vehicle {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.booking-card-dates {
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.booking-card-dates strong {
+    color: #1f2933;
+    display: block;
+    font-size: 14px;
+}
+
+.booking-card-fulfillment {
+    font-size: 13px;
+    color: #4b5563;
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+}
+
+.booking-card-addons {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.booking-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid #f0f1f3;
+    padding-top: 12px;
+}
+
+.booking-card-total {
+    font-size: 17px;
+    font-weight: 700;
+    color: #d9480f;
+}
+
+.booking-cancel-btn {
+    padding: 7px 16px;
+    background: #ffffff;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.booking-cancel-btn:hover {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+/* ---------- Calendar page ---------- */
+.calendar-page-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    height: calc(100vh - 65px);
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 12px;
+    align-self: flex-start;
+}
+
+.calendar-back-link:hover {
+    color: #d9480f;
+    text-decoration: none;
+}
+
+.calendar-back-link svg {
+    width: 15px;
+    height: 15px;
+}
+
+.calendar-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.calendar-page-header h1 {
+    font-size: 19px;
+}
+
+.calendar-legend {
+    display: flex;
+    gap: 14px;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.calendar-legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.calendar-legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.dot-booked { background: #dc3545; }
+.dot-pending { background: #ffc107; }
+.dot-open { background: #22c55e; }
+
+.calendar-card {
+    background: #ffffff;
+    border: 1px solid #e4e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+}
+
+.calendar-card #vehicle-calendar {
+    width: 100%;
+}
+
+.fc {
+    font-family: 'Inter', Arial, sans-serif;
+    height: 100%;
+}
+
+.fc .fc-toolbar {
+    margin-bottom: 10px !important;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 16px;
+}
+
+.fc .fc-button-primary {
+    background-color: #d9480f;
+    border-color: #d9480f;
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: #b8380c;
+    border-color: #b8380c;
+}
+
+.fc .fc-button-primary:disabled {
+    background-color: #f3b892;
+    border-color: #f3b892;
+}
+
+.fc .fc-daygrid-day-number {
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .calendar-page-container {
+        height: auto;
+        padding: 14px 16px;
+    }
+
+    .calendar-card {
+        min-height: 420px;
+    }
+
+    .calendar-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==================================================================
+   RESPONSIVE
+   ================================================================== */
+
+@media (max-width: 900px) {
+    .dashboard-analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .burger-btn {
+        display: block;
+    }
+
+    .sidebar-mobile-head {
+        display: flex;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .layout-wrapper {
+        padding: 12px;
+        gap: 0;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 260px;
+        z-index: 120;
+        border-radius: 0;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.open {
+        display: block;
+    }
+
+    .vehicle-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .vehicle-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-slide img {
+        height: 160px;
+    }
+
+    .banner-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .dashboard-cards,
+    .quick-links-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .dashboard-analytics-grid,
+    .analytics-side-col,
+    .dashboard-analytics-grid .stats-section {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .auth-branding {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .search-bar input {
+        padding: 8px 12px 8px 30px;
+        font-size: 14px;
+    }
+
+    .account-nav {
+        font-size: 13px;
+    }
+
+    .fulfillment-options,
+    .date-input-row,
+    .delivery-detail-box .field-row {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-thumb img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .gallery-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .booking-card-top,
+    .booking-card-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booking-card-dates {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .booking-cancel-btn {
+        width: 100%;
+    }
+
+    .time-input-row {
+        flex-direction: column;
+    }
+
+    .time-confirm-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .vehicle-history-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 400px) {
+    .site-header {
+        gap: 4px;
+        padding: 8px 10px;
+    }
+
+    .brand-logo {
+        height: 36px;
+    }
+
+    .site-header > .account-nav {
+        gap: 4px;
+    }
+
+    .site-header > .account-nav a:not(.account-details a) {
+        padding: 2px 4px;
+        font-size: 10px;
+    }
+
+    .site-header > .account-nav .account-icon-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .site-header > .account-nav .account-icon-btn svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .auth-form-panel {
+        padding: 20px 12px;
+    }
+
+    .auth-form-box {
+        padding: 26px 20px;
+    }
+
+    .auth-name-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    dialog#booking-modal {
+        width: 96%;
+        max-height: 92vh;
+    }
+
+    .booking-modal-body {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-wrap: wrap;
+        padding: 10px 14px;
+    }
+
+    .account-nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 8px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .account-nav a:not(.account-details a) {
+        font-size: 12px;
+        padding: 4px 8px;
+        background: #f3f4f6;
+        border-radius: 4px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .vehicle-detail-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1055px) {
+    .banner-carousel-viewport,
+    .banner-track,
+    .banner-slide {
+        aspect-ratio: 7 / 1;
+    }
+
+    .banner-slide img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .layout-wrapper {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        align-items: start;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .sidebar {
+        width: 220px;
+        padding: 12px;
+        position: sticky;
+        top: 92px;
+        max-height: calc(100vh - 108px);
+        overflow-y: auto;
+    }
+
+    .results-area {
+        min-width: 0;
+    }
+
+    .vehicle-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+.stats-section .admin-page-header {
+    align-items: center;
+}
+
+.account-menu-email {
+    font-size: 12px;
+    color: #6b7280;
+    padding: 0 6px 8px;
+    border-bottom: 1px solid #f0f1f3;
+    margin-bottom: 4px;
+    display: block;
+    word-break: break-all;
+}
+
+/* ---------- Sidebar close button (Browse filters) ---------- */
+.sidebar-mobile-head {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.sidebar-close-btn {
+    background: #f3f4f6;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    color: #4b5563;
+}
+
+.sidebar .sidebar-close-btn {
+    width: 30px;
+    height: 30px;
+    margin-top: 0;
+    padding: 0;
+}
+
+/* ---------- Mobile nav panel (admin/site header links) ---------- */
+.mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 190;
+}
+
+.mobile-nav-overlay.open {
+    display: block;
+}
+
+.mobile-nav-panel {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-panel {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 260px;
+        max-width: 80vw;
+        background: #ffffff;
+        z-index: 195;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        overflow-y: auto;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-nav-panel.open {
+        transform: translateX(0);
+    }
+
+    .mobile-nav-panel-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        border-bottom: 1px solid #e4e7eb;
+    }
+
+    .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .mobile-nav-links a {
+        padding: 12px 10px;
+        border-bottom: 1px solid #f0f1f3;
+        color: #1f2933;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .mobile-nav-links a:hover {
+        color: #d9480f;
+        text-decoration: none;
+    }
+
+    /* Hide the desktop-style nav links row on mobile; the burger
+       panel replaces them. Account icon dropdown stays visible. */
+    .account-nav a.nav-link-desktop-only {
+        display: none;
+    }
+
+    .site-header {
+        flex-wrap: wrap;
+    }
+}
+
+#nav-burger-btn-browse {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #nav-burger-btn-browse {
+        display: block;
+    }
+
+    .search-bar {
+        order: 2;
+        position: static;
+        transform: none;
+        max-width: none;
+        flex: 0 0 100%;
+        margin: 8px 0 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-container,
+    .admin-form-container,
+    .dashboard-main,
+    .bookings-page-container {
+        padding: 14px 16px;
+    }
+
+    .admin-add-btn {
+        padding: 9px 14px;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .admin-toolbar {
+        gap: 8px;
+    }
+
+    .admin-search-box input,
+    .admin-filter-select,
+    .admin-toolbar button {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .admin-search-box input {
+        padding-left: 36px;
+    }
+
+    .admin-page-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .location-section #pickup-map,
+    .location-section > div[id^="pickup-map"] {
+        height: 180px !important;
+    }
+
+    .booking-trigger-btn,
+    .book-now-btn {
+        padding: 11px;
+        font-size: 14px;
+    }
+
+    .vehicle-detail-layout {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-cards,
+    .dashboard-analytics-grid,
+    .analytics-side-col {
+        gap: 10px;
+    }
+
+    .dashboard-card,
+    .stats-section {
+        padding: 12px;
+    }
+}
+
+/* ---------- Narrow browse banner ---------- */
+@media (max-width: 768px) {
+    .banner-carousel {
+        margin-top: 12px;
+        padding: 0 12px;
+    }
+
+    .banner-carousel-viewport,
+    .banner-track,
+    .banner-slide {
+        aspect-ratio: 7 / 1;
+    }
+
+    .banner-slide img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .banner-caption {
+        bottom: 6px;
+        left: 6px;
+        padding: 4px 7px;
+        font-size: 10px;
+    }
+}
+
+/* Admin's 5 nav links: hidden on mobile (shown via panel instead).
+   Customer's "My Bookings" and guest's Login/Sign Up have NO this
+   class, so they stay visible at every screen size. */
+.nav-link-desktop-only {
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .account-nav > .nav-link-desktop-only {
+        display: none;
+    }
+
+    .site-header > .burger-btn,
+    .site-header > #nav-burger-btn-browse {
+        order: 0;
+        align-self: center;
+        flex: 0 0 auto;
+    }
+
+    .site-header > .account-nav {
+        order: 0;
+        width: auto;
+        margin-top: 0;
+        margin-left: auto;
+        flex: 0 0 auto;
+    }
+
+    #nav-burger-btn-browse {
+        display: block;
+    }
+
+    .search-bar {
+        order: 2;
+        max-width: none;
+        flex: 0 0 100%;
+        margin: 8px 0 0;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .search-bar input {
+        min-width: 0;
+    }
+}
+
+#nav-burger-btn-browse {
+    display: none;
+}
+
+/* Filter sidebar: ensure the header row with close button always
+   renders on mobile, and keep it a bit narrower than full-width. */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 240px;
+        max-width: 85vw;
+    }
+
+    .sidebar-mobile-head {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e4e7eb;
+    }
+}
+
+/* ---------- Sticky sidebar filters (desktop only) ---------- */
+@media (min-width: 769px) {
+    .sidebar {
+        position: sticky;
+        top: 84px;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+}
+
+/* ---------- Favorites ---------- */
+.vehicle-card {
+    position: relative;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+.favorite-btn svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+    overflow: visible;
+}
+
+.favorite-btn.favorited {
+    color: #dc3545;
+}
+
+.favorite-btn:hover {
+    color: #dc3545;
+}
+
+/* ---------- Scroll to top button ---------- */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #d9480f;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 150;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+    background: #b8380c;
+}
+
+.scroll-top-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .scroll-top-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ---------- Processing Modal ---------- */
+.processing-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2147483647;
+    align-items: center;
+    justify-content: center;
+}
+
+.processing-modal.active {
+    display: flex;
+}
+
+.processing-modal-content {
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.processing-spinner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.spinner-circle {
+    width: 80px;
+    height: 80px;
+    border: 8px dotted #d9480f;
+    border-radius: 50%;
+    animation: spin 2.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.processing-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.processing-dots {
+    display: inline-block;
+    width: 30px;
+    text-align: left;
+}
+
+/* Compact preview header for narrow screens. */
+@media (max-width: 576px) {
+    .site-header {
+        gap: 3px;
+        padding: 7px 8px;
+    }
+
+    .site-header > .burger-btn {
+        width: 21px;
+        font-size: 21px;
+    }
+
+    .site-header > .logo .brand-logo {
+        height: 34px;
+    }
+
+    .site-header > .account-nav {
+        gap: 2px;
+        min-width: 0;
+    }
+
+    .site-header > .account-nav .preview-badge {
+        max-width: 100px;
+        overflow: hidden;
+        padding: 3px 4px;
+        font-size: 9px;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .site-header > .account-nav a:not(.account-details a) {
+        padding: 3px 4px;
+        font-size: 9px;
+        line-height: 1.2;
+    }
+
+    .site-header > .account-nav .account-icon-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .site-header > .account-nav .account-icon-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Keep admin filters horizontal on tablets and wide phones. */
+@media (min-width: 600px) and (max-width: 900px) {
+    .admin-toolbar {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .admin-search-box {
+        flex: 1 1 auto;
+        min-width: 140px;
+    }
+
+    .admin-toolbar .admin-filter-select,
+    .admin-toolbar button,
+    .admin-toolbar-clear {
+        width: auto;
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-toolbar {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    .admin-search-box {
+        flex: 0 0 170px;
+        min-width: 170px;
+    }
+
+    .admin-toolbar .admin-filter-select {
+        flex: 0 0 120px;
+        width: 120px;
+    }
+
+    .admin-toolbar button {
+        flex: 0 0 auto;
+        width: auto;
+        padding: 9px 12px;
+    }
+
+    .admin-toolbar-clear {
+        flex: 0 0 auto;
+        padding: 4px;
+    }
+
+    .admin-add-btn {
+        align-self: flex-end;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    .admin-add-btn {
+        align-self: flex-end;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 1055px) {
+    .banner-admin-card img {
+        height: auto;
+        aspect-ratio: 7 / 1;
+        object-fit: cover;
+    }
+}
+
+.pickup-map {
+    height: 260px;
+    width: 100%;
+}
